@@ -10,7 +10,7 @@ before_action :authenticate_account!, except: [ :index, :show ]
     end
 
     def new
-
+        @community = Community.new
     end
 
     def create
