@@ -1,5 +1,6 @@
 class CommunitiesController < ApplicationController
-before_action :authenticate_account!, except: [ :index, :show ]    
+before_action :authenticate_account!, except: [ :index, :show ]  
+before_action :set_community, only: [ :show ]
 
     def index
         @communities = Community.all
@@ -15,7 +16,6 @@ before_action :authenticate_account!, except: [ :index, :show ]
 
     def create
         @community = Community.new(community_params)
-        binding.pry
 
         @community.account_id = current_account.id
         if @community.save
@@ -26,6 +26,10 @@ before_action :authenticate_account!, except: [ :index, :show ]
     end
 
     private
+
+    def set_community
+        @community = Community.find(params[:id])
+    end
 
     def community_params
         params.require(:community).permit(:name, :url, :rules)
