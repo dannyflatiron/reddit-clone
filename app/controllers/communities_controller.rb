@@ -7,7 +7,7 @@ before_action :set_community, only: [ :show ]
     end
 
     def show
-
+        @posts = @community.posts
     end
 
     def new
