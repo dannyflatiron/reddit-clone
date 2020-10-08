@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_013938) do
+ActiveRecord::Schema.define(version: 2020_10_08_030047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,20 @@ ActiveRecord::Schema.define(version: 2020_10_01_013938) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["account_id"], name: "index_communities_on_account_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "community_id"
+    t.string "title"
+    t.text "body"
+    t.integer "upvotes"
+    t.integer "downvotes"
+    t.integer "total_comments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_posts_on_account_id"
+    t.index ["community_id"], name: "index_posts_on_community_id"
   end
 
 end
