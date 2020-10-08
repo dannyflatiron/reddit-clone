@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 2020_10_08_030047) do
     t.bigint "community_id"
     t.string "title"
     t.text "body"
-    t.integer "upvotes"
-    t.integer "downvotes"
-    t.integer "total_comments"
+    t.integer "upvotes", default: 0
+    t.integer "downvotes", default: 0
+    t.integer "total_comments", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["account_id"], name: "index_posts_on_account_id"
