@@ -5,4 +5,5 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :communities
+  has_many :posts
 end
