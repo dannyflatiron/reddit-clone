@@ -29,11 +29,12 @@
         </div>
         <div class="col-4">
         <p class="h5" mb-4>Up and coming Communities</p>
+
             <div class="card">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">List 1</li>
-                    <li class="list-group-item">List 2</li>
-                    <li class="list-group-item">List 3</li>
+                    <% @communities.each do |community| %>
+                    <li class="list-group-item"><%= link_to community.name, community_path(community) %></li>
+                    <% end %>
                 </ul>
             </div>
             <%= link_to "View all", communities_path, class: "btn btn-primary mt-4"%>
