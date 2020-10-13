@@ -5,4 +5,8 @@ class PublicController < ApplicationController
         @posts = Post.post_order
     end
 
+    def profile
+        @profile = Account.find_by_username params[:username]
+    end
+
 end
