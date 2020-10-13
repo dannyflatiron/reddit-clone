@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
     before_action :authenticate_account!, except: [ :index, :show ]  
     before_action :set_posts, only: [ :show ]
+    before_action :auth_subscriber, only: [ :new ]
     
         def index
             @posts = Post.all
@@ -32,6 +33,15 @@ class PostsController < ApplicationController
     
         def set_posts
             @post = Post.find(params[:id])
+        end
+
+        def auth_subscriber
+        # #    unless Subscription.check_if_account_signed_in(community.id = params[:community_id], current_account)
+        # #     redirect_to root_path, flash: { error: "You are not authorized to view this page" }
+        # #    end
+        unless Subscription.where(community_id: params[:community_id], account_id: current_account.id).any?
+            redirect_to root_path, flash: {error: "You do not have authorization to access this page"}
+        end
         end
     
         def post_params
