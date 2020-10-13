@@ -9,6 +9,8 @@ before_action :set_community, only: [ :show ]
     def show
         @posts = @community.posts
         @subscriber_count = @community.subscribers.count
+        @is_subscribed = account_signed_in? ? Subscription.check_if_account_signed_in(@community, current_account) : false
+        @subscription = Subscription.new
     end
 
     def new
