@@ -35,6 +35,7 @@ class PostsController < ApplicationController
             @post = Post.find(params[:id])
         end
 
+        # refactor scope method, place it in Post model or Subscription model?
         def auth_subscriber
         # #    unless Subscription.check_if_account_signed_in(community.id = params[:community_id], current_account)
         # #     redirect_to root_path, flash: { error: "You are not authorized to view this page" }
