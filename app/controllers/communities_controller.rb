@@ -8,6 +8,7 @@ before_action :set_community, only: [ :show ]
 
     def show
         @posts = @community.posts
+        @subscriber_count = @community.subscribers.count
     end
 
     def new
@@ -32,6 +33,6 @@ before_action :set_community, only: [ :show ]
     end
 
     def community_params
-        params.require(:community).permit(:name, :url, :rules)
+        params.require(:community).permit(:name, :url, :rules, :summary)
     end
 end
