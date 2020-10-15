@@ -1,7 +1,5 @@
 class Comment < ApplicationRecord
     belongs_to :post
-    belongs_to :community
-    validates_presence_of :title, :body, :account_id, :community_id
-    has_many :comments
-
+    belongs_to :account
+    validates_presence_of :message, :account_id, :post_id
 end
