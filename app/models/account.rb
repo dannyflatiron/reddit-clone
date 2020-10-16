@@ -17,7 +17,7 @@ class Account < ApplicationRecord
   end
 
   def upvoted_post_ids
-    ids = self.votes.where(upvote: true).pluck(:post_id)
+    self.votes.where(upvote: true).pluck(:post_id)
   end
 
   def downvoted_post_ids
