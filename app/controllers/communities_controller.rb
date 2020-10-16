@@ -7,7 +7,7 @@ before_action :set_community, only: [ :show ]
     end
 
     def show
-        @posts = @community.posts
+        @posts = @community.posts.sort_by{|p| p.score}.reverse
         @subscriber_count = @community.subscribers.count
         @is_subscribed = account_signed_in? ? Subscription.check_if_account_signed_in(@community, current_account) : false
         @subscription = Subscription.new
