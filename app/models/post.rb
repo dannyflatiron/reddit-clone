@@ -7,4 +7,8 @@ class Post < ApplicationRecord
     def self.post_order
         order(id: :desc).limit(20)
     end
+
+    def score
+        0
+    end
 end
