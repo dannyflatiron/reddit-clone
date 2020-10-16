@@ -5,7 +5,8 @@ class Post < ApplicationRecord
     validates_presence_of :title, :body, :account_id, :community_id
 
     def self.post_order
-        order(id: :desc).limit(20)
+        posts = Post.all
+        posts.sort_by{ |p| p.score }.reverse
     end
 
     def score
