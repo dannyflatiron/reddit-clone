@@ -32,7 +32,7 @@ class PostsController < ApplicationController
         private
     
         def set_posts
-            @post = Post.includes(:comments, :votes).find(params[:id])
+            @post = Post.includes(:comments).find(params[:id])
         end
 
         # refactor scope method, place it in Post model or Subscription model?
