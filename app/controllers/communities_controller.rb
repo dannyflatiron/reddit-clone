@@ -31,7 +31,7 @@ before_action :set_community, only: [ :show ]
     private
 
     def set_community
-        @community = Community.find(params[:id])
+        @community = Community.includes(:posts).find(params[:id])
     end
 
     def community_params
