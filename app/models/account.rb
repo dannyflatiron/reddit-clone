@@ -17,12 +17,12 @@ class Account < ApplicationRecord
   end
 
   def upvoted_post_ids
-    # self.votes.where(upvote: true).pluck(:post_id)
-    Vote.includes(:account).where(account_id: self.id, upvote: true).pluck(:post_id)
+    self.votes.where(upvote: true).pluck(:post_id)
+    # Vote.includes(:account).where(account_id: self.id, upvote: true).pluck(:post_id)
   end
 
   def downvoted_post_ids
-    # self.votes.where(upvote: false).pluck(:post_id)
-    Vote.includes(:account).where(account_id: self.id, upvote: false).pluck(:post_id)
+    self.votes.where(upvote: false).pluck(:post_id)
+    # Vote.includes(:account).where(account_id: self.id, upvote: false).pluck(:post_id)
   end
 end
