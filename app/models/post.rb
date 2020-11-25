@@ -5,10 +5,10 @@ class Post < ApplicationRecord
     has_many :votes
     validates_presence_of :title, :body, :account_id, :community_id
 
-    def self.post_order
-        posts = Post.all
-        posts.sort_by{ |p| p.score }.reverse
-    end
+    # def self.post_order
+    #     posts = Post.all
+    #     posts.sort_by{ |p| p.score }.reverse
+    # end
 
     def score
         if self.upvotes > 0 || self.downvotes > 0
