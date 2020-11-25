@@ -13,14 +13,13 @@
     <%= simple_format @post.body %>
 
     <div id="post-comments">
+        <h5>Comment as <%= link_to current_account.username, profile_path(current_account.username) %></h5>
+        <%= form_for @comment, remote: true do |f| %>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= f.text_area :message, placeholder: "Your comment goes here", class: "form-control" %>
+            <%= f.submit "Submit comment", class: "btn btn-success mt-3 mb-3"%>
+        <% end %>
         <%= render partial: "posts/comments", locals: { comments: @post.comments } %>
     </div>
-
-    <h5>Leave a comment</h5>
-    <%= form_for @comment, remote: true do |f| %>
-        <%= f.hidden_field :post_id, value: @post.id %>
-        <%= f.text_area :message, placeholder: "Your comment goes here", class: "form-control" %>
-        <%= f.submit "Submit comment", class: "btn btn-success mt-3"%>
-    <% end %>
     </div>
 </div>
