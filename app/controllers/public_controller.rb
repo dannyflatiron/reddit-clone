@@ -2,7 +2,8 @@ class PublicController < ApplicationController
 
     def index
         @communities = Community.all.limit(5)
-        @posts = Post.post_order
+        @posts = Post.includes(:community, :account)
+        @posts.sort_by{ |p| p.score }.reverse
     end
 
     def profile
