@@ -4,7 +4,7 @@
 I built this app with the intent of learning how to use bootstrap styling and build something a bit more complex than my previous Rails apps. Skills learned include bootstrap styling, handling n + 1 queries, using javascript to dynamically load html elements in a Rails app, setting up a password recovering email link sent to user's inbox. [Visit site](https://reddit-clone-danny.herokuapp.com/).
 
 ---
-![Reddit Clone Home](https://github.com/dannyflatiron/reddit-cline/blob/master/public/home.png?raw=true)
+![Reddit Clone Home](https://github.com/dannyflatiron/reddit-clone/blob/master/public/home.png?raw=true)
 ---
 ![Reddit Clone Sign-Up](https://github.com/dannyflatiron/reddit-clone/blob/master/public/sign_up.png?raw=true)
 ---
