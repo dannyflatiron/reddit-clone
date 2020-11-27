@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: db/reddit-production
+  database: <%= ENV['DATABASE URL'] %>
